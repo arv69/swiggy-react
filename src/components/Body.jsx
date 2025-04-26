@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Shimmer from './Shimmer';
+import { ShimmerPostItem } from "react-shimmer-effects";
 import RestaurantCard from './RestaurantCard';
 
 const Body = () => {
@@ -14,7 +16,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    const restaurants = json?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+    const restaurants = json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     setListOfRestaurants(restaurants);
     setOriginalList(restaurants); // Save the original list
   };
@@ -34,12 +36,7 @@ const Body = () => {
   };
    if(listOfRestaurants.length === 0) {
     return (
-      <div className="loading">
-        <img
-          src="https://media.giphy.com/media/3o7aD2saXk4v1Y5x6I/giphy.gif"
-          alt="Loading..."
-        />
-      </div>
+     <Shimmer/>
     );
   }
 
