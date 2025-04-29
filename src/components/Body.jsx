@@ -26,7 +26,7 @@ const Body = () => {
     setListOfRestaurants(restaurants);
     setOriginalList(restaurants); // Save the original list
   };
-
+ 
   const handleClickRating = () => {
     const filteredList = listOfRestaurants.filter(
       (res) => res.info.avgRating > 4.2
